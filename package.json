@@ -8,19 +8,20 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-	"docs:dev": "vuepress dev docs",
-	"docs:build": "vuepress build docs",
-	"push": "bash deploy.sh"
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "push": "bash deploy.sh"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "jquery": "^3.5.1",
     "mermaid": "^7.1.2",
     "vuepress": "^1.0.0-rc.1"
   },
   "devDependencies": {
-    "@vuepress/plugin-back-to-top": "^1.0.0-rc.1"
+    "@vuepress/plugin-back-to-top": "^1.0.0-rc.1",
+    "vuepress-plugin-container": "^2.1.5"
   }
-  
 }

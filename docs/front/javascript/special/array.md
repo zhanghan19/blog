@@ -404,5 +404,18 @@
   }
   console.table(filterGoods(cart));
   ```
+## 使用场景
+
+- 拼接查询字符串
+
+```js
+let a = {
+  name: '张寒',
+  sex: '男',
+  age: 18
+}
+let b = Object.keys(a).map(key => `${key}=${a[key]}`).join("&")
+console.log(b)
+```
 
   

@@ -2,24 +2,24 @@
 
 - rule
   - Selector
-    ```javascript
-		- selector_group
-		- selector
-		  - \>
-		  - <sp>
-		  - +
-		  - ~
-		  - ||
-		- simple_selector
-		  - type
-		  - *
-		  - .
-		  - #
-		  - []
-		  - :
-		  - ::
-		  - :not()
-	```
+```javascript
+- selector_group
+- selector
+  - \>
+  - <sp>
+  - +
+  - ~
+  - ||
+- simple_selector
+  - type
+  - *
+  - .
+  - #
+  - []
+  - :
+  - ::
+  - :not()
+```
   - Declaration
     - Key
       - variables

@@ -28,16 +28,32 @@ const nav = [{
 				text: '浏览器',
 				link: '/front/browser/',
 				sidebar: true
+			},
+			{
+				text: '组件化',
+				link: '/front/component/',
+				sidebar: true
+			},
+			{
+				text: '工具链',
+				link: '/front/toolchain/',
+				sidebar: true
+			},
+			{
+				text: '发布系统',
+				link: '/front/pubsys/',
+				sidebar: true
 			}
 		]
 	},
 	{
 		text: '语言',
-		items: [{
-				text: 'javascript',
-				link: '/language/javascript/',
-				sidebar: true
-			},
+		items: [
+			// {
+			// 	text: 'javascript',
+			// 	link: '/language/javascript/',
+			// 	sidebar: true
+			// },
 			{
 				text: 'c',
 				link: '/language/c/',
@@ -45,28 +61,57 @@ const nav = [{
 			},
 			{
 				text: 'python',
-				link: '/language/python/',
-				sidebar: true
+				link: '/language/python/'
 			},
 		]
 	},
+
 	{
-		text: '网站构建',
-		link: '/construct/'
+		text: '工具',
+		items: [{
+				text: 'GIT',
+				link: '/tool/git/',
+				sidebar: true
+			},
+			{
+				text: 'webpack',
+				link: '/tool/webpack/',
+				sidebar: true
+			},
+			{
+				text: 'nginx',
+				link: '/tool/nginx/',
+			}
+		]
+
+	},
+	{
+		text: '功能实现',
+		items: [{
+				text: '功能',
+				link: '/func/usually/',
+				sidebar: true
+			}
+		]
 	},
 	{
 		text: '简历',
 		link: '/resume/'
 	},
 	{
-		text: 'External',
-		link: 'https://google.com'
+		text: 'github',
+		link: 'https://github.com/zhanghan19/blog'
 	},
+	// {
+	// 	text: '网站构建',
+	// 	link: '/construct/'
+	// },
 ];
 
 function sidebar(nav) {
 	const obj = {};
 	const arrSide = []
+
 	function f_cls(nav) {
 		nav.forEach(function(item) {
 			if (item.items) {
@@ -89,6 +134,7 @@ function sidebar(nav) {
 module.exports = {
 	title: '张寒',
 	description: 'Just playing around22',
+	// base: '/zhanghan/',
 	themeConfig: {
 		nav: nav,
 		sidebarDepth: 3,
@@ -97,7 +143,26 @@ module.exports = {
 	},
 	plugins: ['@vuepress/back-to-top'],
 	markdown: {
-	    lineNumbers: true
-	}
+		lineNumbers: true
+	},
+	plugins: [
+		// 你可以多次使用这个插件
+		[
+			'vuepress-plugin-container',
+			{
+				type: 'right',
+				defaultTitle: '',
+			},
+		],
+		[
+			'vuepress-plugin-container',
+			{
+				type: 'theorem',
+				before: info => `<div class="theorem"><p class="title">${info}</p>`,
+				after: '</div>',
+			},
+		],
+
+	],
 
 }

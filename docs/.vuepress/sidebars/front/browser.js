@@ -1,9 +1,13 @@
 module.exports = [
 	'/front/browser/',
-	// {
-	// 	title: 'css',
-	// 	children: [
-	// 		'/front/browser/css1'
-	// 	]
-	// }
+	{
+		title: 'toy-browser',
+		children: [
+			'/front/browser/browser1',
+			'/front/browser/browser2',
+			'/front/browser/browser3',
+			'/front/browser/browser4',
+			
+		]
+	}
 ]

@@ -13,7 +13,9 @@ module.exports = [
 	{
 		title: 'Javascript专题',
 		children: [
-			'/front/javascript/special/array'
+			'/front/javascript/special/array',
+			'/front/javascript/special/es6',
+			
 		]
 	}
 ]

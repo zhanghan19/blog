@@ -32,4 +32,4 @@
 
 - layout
 	- getClientRects()  // 获取元素生成的盒
-	- getBoundingClientRect() // 去除元素生成所有盒的包含区域
+	- getBoundingClientRect() // 获取元素生成所有盒的包含区域

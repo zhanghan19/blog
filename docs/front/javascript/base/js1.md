@@ -98,8 +98,6 @@
         - JSON , HTML , XAML , SQL , CSS , Lisp， Clojure，Haskell
       - 命令型语言：达成结果的过程是怎样的
         - C C++ java c#, python, Ruby, Perl,  javascript
-    - 练习：
-      - 给你所知道的语言类型分类 
 
 ## 编程语言的性质
 

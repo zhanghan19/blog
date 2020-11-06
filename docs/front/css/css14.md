@@ -38,4 +38,29 @@
 
 - block box && overflow:visible
 - BFC合并与float
+```html
+<body style="height: 500px;background-color: lightgreen;">
+	<div style="float:right;width:100px;height:100px;background:aqua;margin:20px;">
+	</div>
+
+	<div style="background-color: pink;overflow: visible;margin: 30px;">
+	<!-- <div style="background-color: pink;overflow: hidden;margin: 30px;"> -->
+		文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文
+		字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字
+		文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文
+		字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字
+		文字文字文字文字文字文字文字文字
+	</div>
+</body>
+```
 - BFC合并与边距折叠
+
+```html
+<div style="width: 100px; height: 100px;background-color: aqua; margin: 20px;">
+</div>
+<!-- <div style="overflow: hidden;background-color: pink;"> -->
+<div style="overflow: visible;background-color: pink;">
+	<div style="width: 100px; height: 100px;background-color: aqua;margin: 20px;">
+	</div>
+</div>
+```
