@@ -1677,7 +1677,7 @@
 		</div>
 		<div id="index-center">
 			<h1>来日可期</h1>
-			<h2>成功不是凭梦想和希望，而是凭努力和实践。</h2>
+			<h2>成功不是凭梦想和希望，而是靠努力和实践。</h2>
 			<a href="/resume" class="btn">Enter Blog</a>
 		</div>
 	

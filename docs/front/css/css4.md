@@ -80,6 +80,6 @@ start();
 
 这样，我们就得到了每个属性属于哪个标准，我们来看看最终结果。我把它整理成了一个列表。
 
-<img :src="$withBase('/images/cssstd2.jpg')" alt="css标准">
+<ME-img url="/images/cssstd2.jpg"/>
 
 至此，我们已经找出了标准中讲解的所有属性。

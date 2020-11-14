@@ -6,6 +6,7 @@
   - inline -level-box行内级别的盒
   - block-level-box 块级盒
 
-<img :src="$withBase('/images/stream.png')" alt="正常流">
+<ME-img url="/images/stream.png"/>
 
-<img :src="$withBase('/images/stream2.png')" alt="正常流">
+
+<ME-img url="/images/stream2.png"/>

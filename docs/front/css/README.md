@@ -1,3 +1,3 @@
 # css概述
 
-<img :src="$withBase('/images/css.png')" alt="css结构图">
+<ME-img url="/images/css.png"/>

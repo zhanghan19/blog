@@ -22,6 +22,8 @@
   },
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.0.0-rc.1",
-    "vuepress-plugin-container": "^2.1.5"
+    "vuepress-plugin-container": "^2.1.5",
+    "vuepress-plugin-mathjax": "^1.2.8",
+    "vuepress-plugin-medium-zoom": "^1.1.9"
   }
 }

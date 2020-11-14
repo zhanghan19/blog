@@ -15,6 +15,8 @@ module.exports = [
 		children: [
 			'/front/javascript/special/array',
 			'/front/javascript/special/es6',
+			'/front/javascript/special/reg',
+			'/front/javascript/special/pattern',
 			
 		]
 	}

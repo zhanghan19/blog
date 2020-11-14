@@ -267,6 +267,11 @@
 				</div>
 			</div>
 		</div>
+		
+		
+		<div class="card_f">
+			<div class="card"></div>
+		</div>
 	</div>
 	
 </template>
@@ -428,6 +433,12 @@ export default {
 };
 </script>
 <style scoped="scoped">
+	
+.card{
+	width: 200px;
+	height: 100px;
+}
+	
 .theme-default-content:not(.custom) {
 	max-width: none;
 	margin: 0 auto;

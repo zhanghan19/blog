@@ -43,6 +43,11 @@ const nav = [{
 				text: '发布系统',
 				link: '/front/pubsys/',
 				sidebar: true
+			},
+			{
+				text: '微信小程序',
+				link: '/front/applet/',
+				sidebar: true
 			}
 		]
 	},
@@ -88,11 +93,10 @@ const nav = [{
 	{
 		text: '功能实现',
 		items: [{
-				text: '功能',
-				link: '/func/usually/',
-				sidebar: true
-			}
-		]
+			text: '功能',
+			link: '/func/usually/',
+			sidebar: true
+		}]
 	},
 	{
 		text: '简历',
@@ -162,7 +166,18 @@ module.exports = {
 				after: '</div>',
 			},
 		],
-
+		[
+			'vuepress-plugin-medium-zoom',
+			{
+				selector: '.my-wrapper .my-img',
+				delay: 1000,
+				options: {
+					margin: 24,
+					background: '#fff',
+					scrollOffset: 0,
+				},
+			},
+		],
 	],
 
 }

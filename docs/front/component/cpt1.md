@@ -83,3 +83,193 @@ input.getAttribute('value'); // cute
 <li><img src=“{{icon}}”/>{{title}}</li>
 </my-list>
 ```
+
+## 为组件添加JSX语法
+
+- 初始化项目
+
+```shell
+npm init 
+```
+- 安装依赖
+
+```shell
+npm install --save-dev webpack babel-loader @babel/core @babel/preset-env
+```
+
+- 添加webpack.config.js 和 main.js
+webpack.config.js 
+```js
+module.exports = {
+	entry: "./main.js"
+}
+```
+main.js
+```js
+let add = (x, y) => {
+  return x + y
+}
+```
+
+运行webpack
+
+- 为了运行jsx语法安装 @babel/plugin-transform-react-jsx
+
+```shell
+npm install --save-dev @babel/plugin-transform-react-jsx
+```
+
+- 修改main.js
+```js
+let add = (x, y) => {
+  return x + y
+}
+
+let a = <div/>
+```
+- 修改webpack.config.js
+
+```js
+module.exports = {
+  entry: "./main.js",
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"],
+            plugins: [["@babel/plugin-transform-react-jsx",{pragma:"createElement"}]]
+          }
+        }
+      }
+    ]
+  },
+  mode: "development"
+}
+```
+## JSX的基本使用方法
+
+在main.js中输入
+
+```js
+let a = <div id="s">
+   <span>1</span>
+   <span>2</span>
+   <span>3</span>
+</div>
+```
+上面代码被webpack打包编译之后会生成如下代码
+
+```js
+var a = createElement("div", {
+  id: "s"
+}, createElement("span", null, "1"), 
+   createElement("span", null, "2"), 
+   createElement("span", null, "3"));
+```
+所以我们只需要在createElement函数中编写逻辑即可
+
+::: warning 注意
+createElement 函数名是在配置@babel/plugin-transform-react-jsx插件时配置pragma:"createElement"
+::: 
+
+::: details createElement
+
+```js
+function createElement(type, attributes, ...children) {
+  let element = element = document.createElement(type);
+  for(let name in attributes) {
+    element.setAttribute(name, attributes[name])
+  }
+
+  for(let child of children) {
+    if(typeof child === 'string') {
+      child = document.createTextNode(child)
+    }
+    element.appendChild(child)
+  }
+  return element;
+}
+
+let a = <div id="s">
+   <span>1</span>
+   <span>2</span>
+   <span>3</span>
+</div>
+
+document.body.appendChild(a)
+
+```
+::: 
+
+::: details createElement 自定义组件
+```js
+function createElement(type, attributes, ...children) {
+  let element = null;
+  if (typeof type === "string") {
+    element = new ElementWrapper(type)
+  } else {
+    element = new type;
+  }
+
+  for (let name in attributes) {
+    element.setAttribute(name, attributes[name])
+  }
+
+  for (let child of children) {
+    if (typeof child === 'string') {
+      child = new TextWrapper(child)
+    }
+    child.mountTo(element)
+  }
+  return element;
+}
+
+class Component {
+  constructor() {
+    // this.root = this.render();
+  }
+  setAttribute(name, value) {
+    this.root.setAttribute(name, value)
+  }
+  appendChild(child) {
+    this.root.appendChild(child)
+  }
+  mountTo(parent) {
+    parent.appendChild(this.root)
+  }
+}
+
+class ElementWrapper extends Component {
+  constructor(type) {
+    super()
+    this.root = document.createElement(type)
+  }
+ 
+}
+
+class TextWrapper extends Component {
+  constructor(content) {
+    super()
+    this.root = document.createTextNode(content)
+  }
+}
+
+class Div extends Component {
+  constructor() {
+    super()
+    this.root = document.createElement('div');
+  }
+}
+
+let a = <Div id="s">
+  <span>1</span>
+  <span>2</span>
+  <span>3</span>
+</Div>
+
+a.mountTo(document.body)
+```
+:::

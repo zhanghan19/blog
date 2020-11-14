@@ -1,8 +1,8 @@
 # 浏览器工作原理
 
 ## 流程
-![](/images/browser/01.jpg)
 
+<ME-img url="/images/browser/01.jpg"/>
 
 
 从上面这个图中，我们可以看到那么几个事：
@@ -34,3 +34,4 @@
 2. [How Browsers Work: Behind the scenes of modern web browsers](https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/)
 3. [浏览器的渲染原理简介](https://coolshell.cn/articles/9666.html)
 4. [How browsers works](http://arvindr21.github.io/howBrowserWorks/#/)
+

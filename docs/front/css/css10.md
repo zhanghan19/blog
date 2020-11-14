@@ -19,5 +19,4 @@ CSS选择器选中的  **元素**  ， 在排版时可能产生多个 **盒**   
 
 排版和渲染的基本单位是  **盒** 。
 
-<img :src="$withBase('/images/boxmodule.jpg')" alt="盒模型">
-
+<ME-img url="/images/boxmodule.jpg"/>
