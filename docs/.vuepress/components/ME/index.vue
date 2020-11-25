@@ -1674,36 +1674,225 @@
 					</g>
 				</g>
 			</svg>
+			<div id="index-center">
+				<h1>来日可期</h1>
+				<h2>成功不是凭梦想和希望，而是靠努力和实践。</h2>
+				<!-- <a href="/resume" class="btn">Enter Blog</a> -->
+			
+				<a href="/resume" class="btn">Resume</a>
+			</div>
 		</div>
-		<div id="index-center">
-			<h1>来日可期</h1>
-			<h2>成功不是凭梦想和希望，而是靠努力和实践。</h2>
-			<a href="/resume" class="btn">Enter Blog</a>
-		</div>
-	
-		<script type="text/javascript" src="/js/index.js"></script>
-	
 	</div>
 </template>
 
 <script>
-
+import $ from 'jquery';
+import { gsap } from 'gsap';
 export default {
 	mounted() {
 		let header = document.getElementsByClassName('navbar')[0].offsetHeight;
 		let viewHeight = window.innerHeight;
 		let page = this.$refs.content.parentElement.parentElement;
 		page.style.paddingBottom = 0;
-		page.style.height = viewHeight - header + "px";
-		this.$refs.content.parentElement.style.height = viewHeight - header + "px";
+		page.style.height = viewHeight - header + 'px';
+		this.$refs.content.parentElement.style.height = viewHeight - header + 'px';
 		this.$refs.content.parentElement.style.maxWidth = 'none';
 		this.$refs.content.parentElement.style.padding = 0;
+
+		const branchesRandomOrder = $('[id^=BranchGroup]')
+			.toArray()
+			.sort(function() {
+				return 0.5 - Math.random();
+			});
+		const branchesRandomOrderLeft = $('[id^=BranchGroup-left]')
+			.toArray()
+			.sort(function() {
+				return 0.5 - Math.random();
+			});
+		const branchesRandomOrderRight = $('[id^=BranchGroup-right]')
+			.toArray()
+			.sort(function() {
+				return 0.5 - Math.random();
+			});
+		const branchesRandomOrderBottom = $('[id^=BranchGroup-bottom]')
+			.toArray()
+			.sort(function() {
+				return 0.5 - Math.random();
+			});
+
+		// const master = new TimelineMax();
+		var master = gsap.timeline();
+		master.add(mainSetUp).add(branchMaster);
+
+		// mainSetUp()
+		function mainSetUp() {
+			var tl = gsap.timeline();
+			tl.set(['[id^=petal-]'], {
+				fill: '#e5d081'
+			})
+				.set(['[id^=flower-]', '[id^=bud-]', '[id^=bloom-]'], {
+					scale: 0,
+					transformOrigin: 'center center'
+				})
+				.set(branchesRandomOrderLeft, {
+					transformOrigin: 'bottom left'
+				})
+				.set(branchesRandomOrderRight, {
+					transformOrigin: 'bottom right'
+				})
+				.set(branchesRandomOrderBottom, {
+					transformOrigin: 'bottom center'
+				})
+				.set('#BranchGroup-left-1', {
+					transformOrigin: '0% 20%'
+				})
+				.set('#BranchGroup-right-16', {
+					transformOrigin: '100% 20%'
+				})
+				.set(branchesRandomOrder, {
+					scale: 0
+				})
+				.set('.container', {
+					autoAlpha: 1
+				});
+			return tl;
+		}
+
+		function branchMaster() {
+			var tl = gsap.timeline();
+			tl.add(wholeBranchGrowIn).add(smallBranchesSway);
+			// tl.add(wholeBranchGrowIn);
+			return tl;
+		}
+
+		function wholeBranchGrowIn() {
+			var tl = gsap.timeline();
+			tl.to(branchesRandomOrder, {
+				duration: 3,
+				scale: 1,
+				ease: 'Power1.inOut',
+				onToggle: flowersBloom,
+				onLeaveBack: currentBranchSwaying,
+				stagger: 0.25
+			});
+			return tl;
+		}
+		// flowersBloom()
+		function flowersBloom(...args) {
+			// console.log(222)
+			var tl = gsap.timeline({
+				delay: 1.5
+			});
+			const currentBranch = $(args[1]);
+			const petals = currentBranch.find('[id^=petal-]');
+			const flowers = currentBranch.find('[id^=flower-]');
+			const buds = currentBranch.find('[id^=bud-]');
+			const blooms = currentBranch.find('[id^=bloom-]');
+			tl.to(
+				[flowers, buds, blooms],
+				{
+					duration: 2,
+					scale: 1,
+					ease: 'back.inOut(2)',
+					stagger: 0.25
+				},
+				0
+			)
+				.to(
+					flowers,
+					{
+						duration: 3,
+						rotation: 90,
+						ease: 'sine.inOut'
+					},
+					0
+				)
+				.to(
+					petals,
+					{
+						duration: 1,
+						fill: '#fff'
+					},
+					0
+				);
+			return tl;
+		}
+
+		function currentBranchSwaying(...args) {
+			var tl = gsap.timeline({
+				yoyo: true,
+				repeat: -1
+			});
+			const currentBranch = $(args[1]);
+			var currentBranchRotation;
+			if (currentBranch.data('position') === 'left') {
+				currentBranchRotation = -10;
+			} else if (currentBranch.data('position') === 'right') {
+				currentBranchRotation = 5;
+			} else {
+				currentBranchRotation = 10;
+			}
+			tl.to(currentBranch, {
+				duration: 2 + Math.random(),
+				rotation: currentBranchRotation,
+				ease: 'sine.inOut',
+				stagger: Math.random() / 1.2
+			});
+			return tl;
+		}
+
+		function smallBranchesSway() {
+			const smallBranches = $('[id^=smallbranch-group]').toArray();
+			var tl = gsap.timeline({
+				yoyo: true,
+				repeat: -1
+			});
+			tl.to(
+				smallBranches,
+				{
+					duration: 2 + Math.random(),
+					rotation: 5,
+					ease: 'sine.inOut',
+					stagger: Math.random() / 1.2
+				},
+				'smallBranchSway'
+			)
+				.to(
+					'#smallbranch-group-3-B, #smallbranch-group-8-A',
+					{
+						duration: 1 + Math.random(),
+						rotation: -5,
+						transformOrigin: '100% 50%'
+					},
+					'smallBranchSway'
+				)
+				.to(
+					'#smallbranch-group-5-A',
+					{
+						duration: 2 + Math.random(),
+						rotation: -5,
+						transformOrigin: '50% 100%'
+					},
+					'smallBranchSway'
+				)
+				.to(
+					'#smallbranch-group-2-C, #smallbranch-group-A, #smallbranch-group-12-A',
+					{
+						duration: 2 + Math.random(),
+						rotation: -5,
+						transformOrigin: '100% 100%'
+					},
+					'smallBranchSway'
+				);
+			return tl;
+		}
 	}
 };
 </script>
 
 <style scoped>
-.page{}
+.page {
+}
 .main {
 	height: 100%;
 	box-sizing: border-box;
@@ -1720,6 +1909,7 @@ export default {
 	background-repeat: no-repeat;
 	max-height: 100%;
 	overflow: hidden;
+	position: relative;
 }
 
 #flowers {
@@ -1734,46 +1924,45 @@ export default {
 	left: 50%;
 	width: 480px;
 	height: 294px;
-	transform:translate(-50%, -50%); 
+	transform: translate(-50%, -50%);
 	text-align: center;
 }
 
 #index-center .btn {
 	display: inline-block;
-	text-decoration:none;
+	text-decoration: none;
 	text-align: center;
 	color: #fff;
-    width: 160px;
-    height: 53px;
-    line-height: 49px;
-    margin: 0 auto;
-    margin-top: 75px;
-    background-color: #ff3d4b;
-    border: 1px solid #ff3d4b;
-    border-radius: 3px;
-    font-size: 24px;
-    -webkit-transition: all .5s;
-    -moz-transition: all .5s;
-    -o-transition: all .5s;
-    transition: all .5s;
-    position: relative;
+	width: 160px;
+	height: 53px;
+	line-height: 49px;
+	margin: 0 auto;
+	margin-top: 75px;
+	background-color: #ff3d4b;
+	border: 1px solid #ff3d4b;
+	border-radius: 3px;
+	font-size: 24px;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+	position: relative;
 }
 
 #index-center .btn:hover {
-    background-color: rgba(255, 255, 255, .2);
-    -webkit-border-radius: 25px;
-    -moz-border-radius: 25px;
-    border-radius: 25px;
-    cursor: pointer;
+	background-color: rgba(255, 255, 255, 0.2);
+	-webkit-border-radius: 25px;
+	-moz-border-radius: 25px;
+	border-radius: 25px;
+	cursor: pointer;
 }
 
-
-#index-center h1{
+#index-center h1 {
 	font-size: 42px;
 	font-weight: 400;
 	color: #ffffff;
 }
-#index-center h2{
+#index-center h2 {
 	font-size: 24px;
 	font-weight: 400;
 	color: #ffffff;

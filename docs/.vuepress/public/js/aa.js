@@ -1,3 +1,3 @@
-module.exports = {
-	'name': 'zhanghan'
+exports.module = {
+	'name':'qwer'
 }

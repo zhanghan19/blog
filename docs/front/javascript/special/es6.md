@@ -381,7 +381,7 @@ console.log(iterator.next());
 console.log(iterator.next());
 ```
 代码说明：
-- * 的位置没有限制
+- `*` 的位置没有限制
 - 生成器函数返回的结果是迭代器对象，调用迭代器对象的 next 方法可以得到yield 语句后的值
 - yield 相当于函数的暂停标记，也可以认为是函数的分隔符，每调用一次 next方法，执行一段代码
 - next 方法可以传递实参，作为 yield 语句的返回值

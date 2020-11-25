@@ -81,12 +81,13 @@ function exex(name) {
 - 示例
 
 ```shell
+# 创建文件夹
 mkdir puppeteer
-
+# 进入文件夹
 cd puppeteer
-
+# 初始化文件
 npm init -y
-
+# 安装依赖
 npm install --save-dev puppeteer
 
 ```

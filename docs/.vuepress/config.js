@@ -45,8 +45,8 @@ const nav = [{
 				sidebar: true
 			},
 			{
-				text: '微信小程序',
-				link: '/front/applet/',
+				text: '框架',
+				link: '/front/frame/',
 				sidebar: true
 			}
 		]

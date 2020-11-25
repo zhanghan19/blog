@@ -11,7 +11,9 @@ module.exports = [
 	{
 		title: '手势与动画',
 		children: [
-			'/front/component/cpt3'
+			'/front/component/cpt3',
+			'/front/component/cpt4',
+			
 		]
 	}
 ]

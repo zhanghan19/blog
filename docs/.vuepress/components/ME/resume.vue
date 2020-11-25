@@ -56,7 +56,7 @@
 				</p>
 			</div>
 		</div>
-		
+
 		<!-- 求职意向 -->
 		<div class="personal qz">
 			<div class="hea">
@@ -169,7 +169,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<!-- 技能介绍 -->
 		<div class="personal">
 			<div class="hea">
@@ -192,24 +192,25 @@
 						
 					</div>
 				</div> -->
-				
+
 				<div>
 					<h3>前端</h3>
 					<div class="pro-item">
 						<p>
 							<a href="/front/html/">HTML：</a>
-							<span>对语义化标签有一定的了解。熟练使用 
-							<a href="">html</a> 
-							的语法完成项目布局。了解相关标准。</span>
+							<span>
+								对语义化标签有一定的了解。熟练使用
+								<a href="">html</a>
+								的语法完成项目布局。了解相关标准。
+							</span>
 						</p>
 						<p>
 							<a href="/front/css/">CSS：</a>
 							<span>
 								<!-- <a href="/front/css/css4.html#找出-w3c-标准中的-css-属性">了解相关标准。</a> -->
-								熟练使用选择器及语法完成页面样式修改。
-								了解排版过程（正常流和Flex）了解
-								<a href="/front/css/css16.html#animation">动画</a> 
-								<a href="">颜色</a> 
+								熟练使用选择器及语法完成页面样式修改。 了解排版过程（正常流和Flex）了解
+								<a href="/front/css/css16.html#animation">动画</a>
+								<a href="">颜色</a>
 								<a href="">绘制</a>
 							</span>
 						</p>
@@ -219,9 +220,7 @@
 						</p>
 						<p>
 							<a href="#">HTTP：</a>
-							<span>
-								了解http协议（请求/响应 行，请求/响应头，请求/响应体）
-							</span>
+							<span>了解http协议（请求/响应 行，请求/响应头，请求/响应体）</span>
 						</p>
 						<p>
 							<a href="/front/browser/">浏览器：</a>
@@ -229,13 +228,13 @@
 						</p>
 						<p>
 							<a href="#">用过的框架、库、及ui：</a>
-							<span> uni-app 、 Vue、Axios 、layer 、Jquery 、bootstrap、Element-ui 、layui......</span>
+							<span>uni-app 、 Vue、Axios 、layer 、Jquery 、bootstrap、Element-ui 、layui......</span>
 						</p>
 					</div>
 				</div>
 			</div>
 		</div>
-		
+
 		<!-- 项目经验 -->
 		<div class="personal">
 			<div class="hea">
@@ -245,7 +244,7 @@
 					<p>项目经验</p>
 				</div>
 			</div>
-			<div class="msg projects">
+			<div class="msg projects" id="rojects_wrap">
 				<div v-for="(item, index) in projects">
 					<h3>{{ item.title }}</h3>
 					<div class="pro-item" v-for="(e, i) in item.children">
@@ -267,13 +266,25 @@
 				</div>
 			</div>
 		</div>
-		
-		
-		<div class="card_f">
-			<div class="card"></div>
+
+		<div class="personal">
+			<div class="hea">
+				<div class="hea_con">
+					<span class="frist_w"><img src="/images/resume/a.jpg" alt="" /></span>
+					<span class="w">bout me</span>
+					<p>关于我</p>
+				</div>
+			</div>
+			<div class="msg">
+				我喜欢工作，所以不要害羞，我们成为同事只是一个电子邮件的距离。
+				
+			</div>
 		</div>
+		<!-- <div class="card_f">
+			<div class="card"></div>
+		</div> -->
+		<div></div>
 	</div>
-	
 </template>
 
 <script>
@@ -349,42 +360,40 @@ export default {
 			],
 			projects: [
 				{
-					title: "医院项目",
-					children: [{
-						name: "南京河西美容医院",
-						info: [
-							{desc:"流程概况", link: "/project/yiyuanliucheng.html"},
-							{desc: "具体详情", link: "/project/yiyuaninfo.html"},
-						],
-						time: "一年"
-					},
-					{
-						name: "南京河西美容医院(皮肤)",
-						info: [
-							{desc:"点击查看", link: "/project/pifu.html"}
-						],
-						time: "一个月"
-					},
-					{
-						name: "南京河西美容医院(仓库)",
-						info: [
-							{desc:"点击查看", link: "/project/cangku.html"}
-						],
-						time: "三个月"
-					}]
+					title: '医院项目',
+					children: [
+						{
+							name: '南京河西美容医院',
+							info: [{ desc: '流程概况', link: '/project/yiyuanliucheng.html' }, { desc: '具体详情', link: '/project/yiyuaninfo.html' }],
+							time: '一年'
+						},
+						{
+							name: '南京河西美容医院(皮肤)',
+							info: [{ desc: '点击查看', link: '/project/pifu.html' }],
+							time: '一个月'
+						},
+						{
+							name: '南京河西美容医院(仓库)',
+							info: [{ desc: '点击查看', link: '/project/cangku.html' }],
+							time: '三个月'
+						}
+					]
 				},
-				{//
-					title: "官网",
-					children: [{
-						name: "嘉凯城",
-						info:[{desc: "点击查看", link: "http://www.calxon-group.com/"}],
-						time: '7天'
-					},
-					{
-						name: "卓诚酒店用品",
-						info:[{desc: "点击查看", link: "http://www.zhuocheng-nj.com/"}],
-						time: '10天'
-					}]
+				{
+					//
+					title: '官网',
+					children: [
+						{
+							name: '嘉凯城',
+							info: [{ desc: '点击查看', link: 'http://www.calxon-group.com/' }],
+							time: '7天'
+						},
+						{
+							name: '卓诚酒店用品',
+							info: [{ desc: '点击查看', link: 'http://www.zhuocheng-nj.com/' }],
+							time: '10天'
+						}
+					]
 				}
 			],
 			skills: [
@@ -433,12 +442,11 @@ export default {
 };
 </script>
 <style scoped="scoped">
-	
-.card{
+.card {
 	width: 200px;
 	height: 100px;
 }
-	
+
 .theme-default-content:not(.custom) {
 	max-width: none;
 	margin: 0 auto;
@@ -747,7 +755,7 @@ export default {
 	background: white;
 	top: 29px;
 }
-.edc_bg .scholl{
+.edc_bg .scholl {
 	margin-top: 0;
 }
 .introduce .left .edc_bg span {
@@ -975,18 +983,19 @@ export default {
 /* .e_msg .befor_company>p>span {} */
 
 /* 项目经验 */
-.projects.msg, {
-	height: auto;
+.personal .msg {
+	height: none;
 	overflow: hidden;
 }
-.pro-item{
+
+.pro-item {
 	overflow: hidden;
 }
 .projects h3 {
 	margin-left: -105px;
 	margin-bottom: 0;
-} 
-.pro-info{
+}
+.pro-info {
 	margin-right: 8px;
 }
 .projects.msg b {
@@ -1001,12 +1010,15 @@ export default {
 .skills h3 {
 	margin-left: -105px;
 	margin-bottom: 0;
-} 
+}
 .skills.msg .pro-item p {
 	width: 100%;
 	float: none;
 }
-.skills.msg .pro-item p a{
+.skills.msg .pro-item p a {
 	margin-right: 10px;
+}
+.personal #rojects_wrap {
+	height: auto;
 }
 </style>

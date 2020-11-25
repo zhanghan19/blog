@@ -17,6 +17,8 @@ module.exports = [
 			'/front/javascript/special/es6',
 			'/front/javascript/special/reg',
 			'/front/javascript/special/pattern',
+			'/front/javascript/special/asyncprogram',
+			'/front/javascript/special/utils',
 			
 		]
 	}
