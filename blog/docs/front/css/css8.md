@@ -1,0 +1,17 @@
+# 8. 伪类
+
+- 链接行为
+  - :any-link
+  - :link :visited
+  - :hover
+  - :active
+  - :focus
+  - :target
+- 树结构
+  - :empty
+  - :nth-child()
+  - :nth-last-child()
+  - :first-child :last-child : only-child
+- 逻辑型
+  - :not伪类
+  - :where :has
