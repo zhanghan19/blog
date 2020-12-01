@@ -10,7 +10,7 @@ npm run docs:build
 cd docs/.vuepress/dist
 
 # 推送到自己的阿里云服务器
-# scp -r -P 22 ./* zh@47.114.45.109:/home/zh/root/blog
+scp -r -P 22 ./* zh@47.114.45.109:/home/zh/root/blog
 
 # 创建CNAME
 # touch CNAME

@@ -38,7 +38,7 @@
       </template>
       <template #bottom>
         <slot name="page-bottom" />
-		<Vssue class="theme-default-content content__default" :options="{ locale: 'zh' }" />
+		<Vssue class="vssue-github" :options="{ locale: 'zh' }" />
       </template>
     </Page>
   </div>
@@ -150,3 +150,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+	.vssue-github{
+		max-width: 740px;
+		margin: 0 auto;
+	}
+</style>
