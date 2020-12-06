@@ -754,18 +754,18 @@ console.log(data);
 ```
 
 ## ECMASript 10 新特性
-###Object.fromEntries
-###trimStart 和 trimEnd
-###Array.prototype.flat 与 flatMap
-###Symbol.prototype.description
+### Object.fromEntries
+### trimStart 和 trimEnd
+### Array.prototype.flat 与 flatMap
+### Symbol.prototype.description
 
 ## ECMASript 11 新特性
-###String.prototype.matchAll
-###类的私有属性
-###Promise.allSettled
-###可选链操作符
-###动态 import 导入
-###globalThis 对象
+### String.prototype.matchAll
+### 类的私有属性
+### Promise.allSettled
+### 可选链操作符
+### 动态 import 导入
+### globalThis 对象
 
 
 

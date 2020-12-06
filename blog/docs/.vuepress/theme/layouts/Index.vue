@@ -49,36 +49,7 @@ export default {
         || this.$themeLocaleConfig.nav
       )
     },
-
-    // shouldShowSidebar () {
-    //   const { frontmatter } = this.$page
-    //   return (
-    //     !frontmatter.home
-    //     && frontmatter.sidebar !== false
-    //     && this.sidebarItems.length
-    //   )
-    // },
-
-    sidebarItems () {
-      return resolveSidebarItems(
-        this.$page,
-        this.$page.regularPath,
-        this.$site,
-        this.$localePath
-      )
-    },
-
-    // pageClasses () {
-    //   const userPageClass = this.$page.frontmatter.pageClass
-    //   return [
-    //     {
-    //       'no-navbar': !this.shouldShowNavbar,
-    //       'sidebar-open': this.isSidebarOpen,
-    //       'no-sidebar': !this.shouldShowSidebar
-    //     },
-    //     userPageClass
-    //   ]
-    // }
+   
   },
 
   mounted () {
@@ -115,3 +86,4 @@ export default {
   }
 }
 </script>
+

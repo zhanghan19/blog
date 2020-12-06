@@ -19,6 +19,7 @@ module.exports = [
 			'/front/javascript/special/pattern',
 			'/front/javascript/special/asyncprogram',
 			'/front/javascript/special/utils',
+			'/front/javascript/special/event',
 			
 		]
 	}
