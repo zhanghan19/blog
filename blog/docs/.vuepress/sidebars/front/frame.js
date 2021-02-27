@@ -31,5 +31,11 @@ module.exports = [
 			'/front/frame/vue3/Vue3-14',
 			'/front/frame/vue3/Vue3-15',
 		]
-	}
+	},
+	{
+		title: 'angular',
+		children: [
+			'/front/frame/angular/router',
+		]
+	},
 ]

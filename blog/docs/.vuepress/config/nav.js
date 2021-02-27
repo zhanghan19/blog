@@ -55,11 +55,11 @@ module.exports = [
 	{
 		text: 'Language',
 		items: [
-			// {
-			// 	text: 'javascript',
-			// 	link: '/language/javascript/',
-			// 	sidebar: true
-			// },
+			{
+				text: 'typescript',
+				link: '/language/typescript/',
+				sidebar: true
+			},
 			{
 				text: 'c',
 				link: '/language/c/',
@@ -99,7 +99,7 @@ module.exports = [
 			sidebar: true
 		}]
 	},
-	{ text: 'Resume', link: '/resume/' },
+	// { text: 'Resume', link: '/resume/' },
 	{
 		text: 'github',
 		link: 'https://github.com/zhanghan19/blog'

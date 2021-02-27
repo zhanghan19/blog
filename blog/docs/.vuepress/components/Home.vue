@@ -1,6 +1,6 @@
 <template>
 	<div class="main" ref="content">
-		<div class="container" style="visibility: inherit; opacity: 1;">
+		<div v-if="showMeiHua" class="container" style="visibility: inherit; opacity: 1;">
 			<svg id="flowers" xmlns="http://www.w3.org/2000/svg" viewBox="120 25 1800 1125">
 				<g id="Branches_Group">
 					<g
@@ -1674,13 +1674,13 @@
 					</g>
 				</g>
 			</svg>
-			<div id="index-center">
-				<h1>来日可期</h1>
-				<h2>成功不是凭梦想和希望，而是靠努力和实践。</h2>
-				<!-- <a href="/resume" class="btn">Enter Blog</a> -->
-			
-				<a href="/resume" class="btn">Resume</a>
-			</div>
+		</div>
+		<div id="index-center">
+			<div class="title">来日可期</div>
+			<div class="desc">成功不是凭梦想和希望，而是靠努力和实践。</div>
+			<a href="/front/html/" class="btn">Enter Blog</a>
+
+			<!-- <a href="/resume" class="btn">Resume</a> -->
 		</div>
 	</div>
 </template>
@@ -1689,6 +1689,11 @@
 import $ from 'jquery';
 import { gsap } from 'gsap';
 export default {
+	data() {
+		return {
+			showMeiHua: true
+		};
+	},
 	mounted() {
 		// let header = document.getElementsByClassName('navbar')[0].offsetHeight;
 		// let viewHeight = window.innerHeight;
@@ -1698,7 +1703,10 @@ export default {
 		// this.$refs.content.parentElement.style.height = viewHeight - header + 'px';
 		// this.$refs.content.parentElement.style.maxWidth = 'none';
 		// this.$refs.content.parentElement.style.padding = 0;
-		
+		const clientWidth = document.body.clientWidth;
+		if (clientWidth <= 1024) {
+			this.showMeiHua = false;
+		}
 
 		const branchesRandomOrder = $('[id^=BranchGroup]')
 			.toArray()
@@ -1897,12 +1905,12 @@ export default {
 	width: 100vw;
 	box-sizing: border-box;
 	position: relative;
+	background: #0fb8ad;
 }
 
 .container {
 	visibility: hidden;
 	margin: 0 auto;
-	overflow: hidden;
 	background: #0fb8ad;
 	background-size: cover;
 	background-position: center;
@@ -1922,10 +1930,11 @@ export default {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	width: 480px;
+	width: 100%;
 	height: 294px;
 	transform: translate(-50%, -50%);
 	text-align: center;
+	color: #ffffff;
 }
 
 #index-center .btn {
@@ -1957,15 +1966,11 @@ export default {
 	cursor: pointer;
 }
 
-#index-center h1 {
+#index-center .title {
 	font-size: 42px;
-	font-weight: 400;
-	color: #ffffff;
+	margin-bottom: 30px;
 }
-#index-center h2 {
+#index-center .desc {
 	font-size: 24px;
-	font-weight: 400;
-	color: #ffffff;
-	border-bottom: none;
 }
 </style>
